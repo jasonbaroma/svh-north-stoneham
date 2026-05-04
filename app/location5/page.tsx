@@ -20,26 +20,26 @@ import {
 } from "lucide-react";
 
 export default function LocationPage() {
-  const locationLinks = buildLocationLinks("{{LOCATION_5_NAME}}");
-  const heroImage = { src: "/images/location5-image1.jpeg", alt: "{{LOCATION5_IMAGE_1_ALT}}" };
-  const supportImage = { src: "/images/location5-image2.jpeg", alt: "{{LOCATION5_IMAGE_2_ALT}}" };
+  const locationLinks = buildLocationLinks("Romsey");
+  const heroImage = { src: "/images/location5-image1.jpeg", alt: "Hire car and van parked near a traditional market town street in Romsey" };
+  const supportImage = { src: "/images/location5-image2.jpeg", alt: "Customer checking a rental car with a staff member before setting off from Romsey" };
   const faqs = [
-    { question: "{{LOCATION5_FAQ_1_QUESTION}}", answer: "{{LOCATION5_FAQ_1_ANSWER}}" },
-    { question: "{{LOCATION5_FAQ_2_QUESTION}}", answer: "{{LOCATION5_FAQ_2_ANSWER}}" },
-    { question: "{{LOCATION5_FAQ_3_QUESTION}}", answer: "{{LOCATION5_FAQ_3_ANSWER}}" },
-    { question: "{{LOCATION5_FAQ_4_QUESTION}}", answer: "{{LOCATION5_FAQ_4_ANSWER}}" },
-    { question: "{{LOCATION5_FAQ_5_QUESTION}}", answer: "{{LOCATION5_FAQ_5_ANSWER}}" },
+    { question: "Can I arrange last-minute vehicle hire in Romsey?", answer: "Yes, subject to availability we can usually help with short-notice bookings in Romsey. It is always best to book ahead if you need a specific vehicle type." },
+    { question: "Do you supply hire vehicles for both personal and business use?", answer: "Yes, we hire to private customers and businesses. That includes one-off jobs, temporary cover and more regular transport needs." },
+    { question: "Are longer rentals available from Romsey?", answer: "In many cases, yes. Let us know your preferred dates and vehicle type and we can advise on the most practical hire period." },
+    { question: "What licence do I need to hire a vehicle?", answer: "A standard driving licence is often enough for many cars and vans, but requirements vary by vehicle. We will confirm what is needed when you book." },
+    { question: "Do you offer delivery and collection in Romsey?", answer: "Yes, delivery and collection can often be arranged, which is useful if you are hiring for a move, business run or time-sensitive job." },
   ];
   const trustCards = [
-    { title: "{{LOCATION5_TRUST_CARD_1_TITLE}}", description: "{{LOCATION5_TRUST_CARD_1_DESCRIPTION}}", icon: ShieldCheck },
-    { title: "{{LOCATION5_TRUST_CARD_2_TITLE}}", description: "{{LOCATION5_TRUST_CARD_2_DESCRIPTION}}", icon: Star },
-    { title: "{{LOCATION5_TRUST_CARD_3_TITLE}}", description: "{{LOCATION5_TRUST_CARD_3_DESCRIPTION}}", icon: Users },
+    { title: "Maintained vehicles", description: "Our rental vehicles are kept in good order and prepared for practical day-to-day use.", icon: ShieldCheck },
+    { title: "Flexible rental options", description: "From one-day bookings to longer hire periods, we aim to keep arrangements workable and clear.", icon: Star },
+    { title: "Personal and business hire", description: "We support both private and commercial customers with straightforward advice and dependable service.", icon: Users },
   ];
   const featureStats = [
-    { value: "Car Hire", label: "{{LOCATION5_FEATURE_CARD_1_DESCRIPTION}}" },
-    { value: "Van Hire", label: "{{LOCATION5_FEATURE_CARD_2_DESCRIPTION}}" },
-    { value: "Minibus Hire", label: "{{LOCATION5_FEATURE_CARD_3_DESCRIPTION}}" },
-    { value: "Truck Hire", label: "{{LOCATION5_FEATURE_CARD_4_DESCRIPTION}}" },
+    { value: "Car Hire", label: "Cars for local trips, business travel and everyday driving." },
+    { value: "Van Hire", label: "Vans sized for moves, collections, deliveries and trade work." },
+    { value: "Minibus Hire", label: "Minibuses for group outings, club travel and event transport." },
+    { value: "Truck Hire", label: "Trucks for larger loads, heavier equipment and commercial jobs." },
   ];
   const vehicleCards = [
     { src: "/images/smallvan1.jpg", alt: "Small van hire vehicle", title: "Small Vans" },
@@ -52,9 +52,9 @@ export default function LocationPage() {
     { src: "/images/7.5tonnecurtainsidehire.jpg", alt: "7.5 tonne curtainside truck hire vehicle", title: "Truck Hire" },
   ];
   const benefits = [
-    { icon: BadgePoundSterling, title: "{{LOCATION5_BENEFIT_1_TITLE}}", description: "{{LOCATION5_BENEFIT_1_DESCRIPTION}}", detail: "{{LOCATION5_BENEFIT_1_DETAIL}}" },
-    { icon: Clock3, title: "{{LOCATION5_BENEFIT_2_TITLE}}", description: "{{LOCATION5_BENEFIT_2_DESCRIPTION}}", detail: "{{LOCATION5_BENEFIT_2_DETAIL}}" },
-    { icon: CheckCircle2, title: "{{LOCATION5_BENEFIT_3_TITLE}}", description: "{{LOCATION5_BENEFIT_3_DESCRIPTION}}", detail: "{{LOCATION5_BENEFIT_3_DETAIL}}" },
+    { icon: BadgePoundSterling, title: "A fleet that covers more jobs", description: "Hiring is easier when you can choose from different vehicle types instead of forcing one option to fit every job.", detail: "That helps whether you are planning a house move, carrying equipment, arranging group travel or simply need temporary transport." },
+    { icon: Clock3, title: "Useful flexibility", description: "Flexible booking periods allow you to hire for the time you actually need, not just a one-size-fits-all slot.", detail: "This can be useful for staged moves, business schedules, overnight trips and longer vehicle requirements." },
+    { icon: CheckCircle2, title: "Straight answers and support", description: "A local, service-led approach helps keep the hire process clear from first enquiry through to return.", detail: "That means better support if you are planning around work, family commitments or timed collections." },
   ];
 
   return (
@@ -103,8 +103,8 @@ export default function LocationPage() {
           <div className="relative z-10 grid gap-12 lg:grid-cols-[1fr_420px] lg:items-center">
             <div className="max-w-3xl">
               <div className="flex flex-col gap-6">
-                <h1 className="text-5xl font-bold tracking-tight">{"{{LOCATION5_HERO_TITLE}}"}</h1>
-                <p className="text-xl text-white">{"{{LOCATION5_HERO_SUBTITLE}}"}</p>
+                <h1 className="text-5xl font-bold tracking-tight">{"Reliable vehicle hire in Romsey"}</h1>
+                <p className="text-xl text-white">{"Flexible self-drive vehicle hire for home moves, business transport, group travel and day-to-day driving across Romsey and the surrounding area."}</p>
                 <Button size="lg" className="w-fit bg-[#00B395] text-white hover:bg-[#00997f]" asChild>
                   <a href={phoneHref}>Book Now</a>
                 </Button>
@@ -127,18 +127,18 @@ export default function LocationPage() {
               <div className="max-w-2xl">
                 <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#00B395]/25 bg-white px-3 py-1 text-sm font-medium text-[#00B395]">
                   <PhoneCall className="h-4 w-4" />
-                  {"{{LOCATION5_BOOKING_BADGE_TEXT}}"}
+                  {"Flexible vehicle hire options"}
                 </div>
-                <h2 className="text-2xl font-bold tracking-tight text-slate-950 md:text-3xl">{"{{LOCATION5_BOOKING_SECTION_TITLE}}"}</h2>
-                <p className="mt-3 text-base leading-7 text-slate-600">{"{{LOCATION5_BOOKING_SECTION_DESCRIPTION}}"}</p>
+                <h2 className="text-2xl font-bold tracking-tight text-slate-950 md:text-3xl">{"Simple vehicle hire for Romsey customers"}</h2>
+                <p className="mt-3 text-base leading-7 text-slate-600">{"Booking vehicle hire in Romsey should feel straightforward. We help arrange the right car, van, minibus or truck for the job, with practical rental periods and support for both private and business customers."}</p>
                 <div className="mt-5 flex flex-wrap gap-3 text-sm text-slate-600">
                   <div className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 shadow-sm">
                     <PhoneCall className="h-4 w-4 text-[#00B395]" />
-                    {"{{LOCATION5_BOOKING_FEATURE_1}}"}
+                    {"Flexible hire periods"}
                   </div>
                   <div className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 shadow-sm">
                     <Clock3 className="h-4 w-4 text-[#00B395]" />
-                    {"{{LOCATION5_BOOKING_FEATURE_2}}"}
+                    {"Delivery and collection available"}
                   </div>
                 </div>
               </div>
@@ -153,8 +153,8 @@ export default function LocationPage() {
       <section id="trust" className="px-6 py-16">
         <div className="mx-auto max-w-6xl">
           <div className="mb-12 text-center">
-            <h2 className="mb-4 text-4xl font-bold">{"{{LOCATION5_TRUST_SECTION_TITLE}}"}</h2>
-            <p className="text-lg text-muted-foreground">{"{{LOCATION5_TRUST_SECTION_DESCRIPTION}}"}</p>
+            <h2 className="mb-4 text-4xl font-bold">{"A dependable choice for Romsey vehicle hire"}</h2>
+            <p className="text-lg text-muted-foreground">{"Romsey customers choose us for practical service, a broad range of vehicles and rental support that is geared around real transport needs."}</p>
           </div>
           <div className="grid gap-8 md:grid-cols-3 md:auto-rows-fr">
             {trustCards.map((item) => (
@@ -173,9 +173,9 @@ export default function LocationPage() {
       <section className="bg-white px-6 py-20 text-slate-950">
         <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
           <div>
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"{{LOCATION5_FEATURE_SECTION_KICKER}}"}</p>
-            <h2 className="max-w-2xl text-4xl font-bold tracking-tight md:text-5xl">{"{{LOCATION5_FEATURE_SECTION_TITLE}}"}</h2>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">{"{{LOCATION5_FEATURE_SECTION_DESCRIPTION}}"}</p>
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Vehicle options"}</p>
+            <h2 className="max-w-2xl text-4xl font-bold tracking-tight md:text-5xl">{"Cars, vans, minibuses and trucks for Romsey hire"}</h2>
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">{"From a short local rental to a larger commercial requirement, we offer a broad vehicle range for Romsey customers who need practical transport without unnecessary hassle."}</p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Button size="lg" className="bg-[#00B395] text-white hover:bg-[#00997f]" asChild>
                 <a href={phoneHref}>No Hassle Booking {phoneDisplay}</a>
@@ -195,13 +195,13 @@ export default function LocationPage() {
 
       <section className="bg-white px-6 py-20">
         <div className="mx-auto max-w-5xl text-center">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"{{LOCATION5_CONTENT_SECTION_KICKER}}"}</p>
-          <h2 className="mx-auto max-w-3xl text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"{{LOCATION5_CONTENT_SECTION_TITLE}}"}</h2>
+          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Why hire with us"}</p>
+          <h2 className="mx-auto max-w-3xl text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"Dependable self-drive hire in and around Romsey"}</h2>
           <div className="mx-auto mt-8 max-w-3xl space-y-6 text-lg leading-8 text-slate-600">
-            <p>{"{{LOCATION5_CONTENT_SECTION_PARAGRAPH_1}}"}</p>
-            <p>{"{{LOCATION5_CONTENT_SECTION_PARAGRAPH_2}}"}</p>
-            <p>{"{{LOCATION5_CONTENT_SECTION_PARAGRAPH_3}}"}</p>
-            <p>{"{{LOCATION5_CONTENT_SECTION_PARAGRAPH_4}}"}</p>
+            <p>{"Romsey is well placed for local trips, business travel and larger journeys across Hampshire, so having the right vehicle makes a real difference. Southern Van Hire offers practical rental options for everyday transport, planned moves and short-term fleet cover."}</p>
+            <p>{"Our range includes compact cars, larger vans, minibuses for group travel and trucks for heavier jobs. Whether you are collecting furniture, covering a busy trading week or organising transport for an event, we keep the process clear and workable."}</p>
+            <p>{"Customers in Romsey often need a hire vehicle that can handle town driving as well as quick access towards Southampton, Winchester and the M27 corridor. We help match the booking to the route, load and rental length rather than pushing a one-size-fits-all option."}</p>
+            <p>{"With maintained vehicles, flexible arrangements and a service-led approach, we aim to take the hassle out of self-drive hire. That means dependable transport, practical advice and support that works for real journeys."}</p>
           </div>
         </div>
       </section>
@@ -210,9 +210,9 @@ export default function LocationPage() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(0,179,149,0.14),_transparent_55%)] pointer-events-none" />
         <div className="mx-auto max-w-6xl">
           <div className="mx-auto mb-14 max-w-3xl text-center">
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"{{LOCATION5_BENEFITS_SECTION_KICKER}}"}</p>
-            <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"{{LOCATION5_BENEFITS_SECTION_TITLE}}"}</h2>
-            <p className="mt-5 text-lg leading-8 text-slate-600">{"{{LOCATION5_BENEFITS_SECTION_DESCRIPTION}}"}</p>
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"What makes us useful"}</p>
+            <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"Benefits of booking in Bishopstoke"}</h2>
+            <p className="mt-5 text-lg leading-8 text-slate-600">{"Flexible vehicle hire with practical features that make a real difference for journeys starting in Bishopstoke."}</p>
           </div>
           <div className="grid gap-8 md:grid-cols-3">
             {benefits.map((item) => (
@@ -254,8 +254,8 @@ export default function LocationPage() {
         <div className="mx-auto max-w-5xl">
           <div className="mx-auto max-w-3xl text-center">
             <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Nearby Locations"}</p>
-            <h2 className="text-3xl font-bold tracking-tight text-slate-950 md:text-4xl">{"{{LOCATION5_NEARBY_LOCATIONS_SECTION_TITLE}}"}</h2>
-            <p className="mt-4 text-lg leading-8 text-slate-600">{"{{LOCATION5_NEARBY_LOCATIONS_SECTION_INTRO}}"}</p>
+            <h2 className="text-3xl font-bold tracking-tight text-slate-950 md:text-4xl">{"Vehicle hire around Romsey and nearby areas"}</h2>
+            <p className="mt-4 text-lg leading-8 text-slate-600">{"If Romsey is not your only stop, we also cover nearby towns and villages across this part of Hampshire, making it easier to book where it best suits your journey."}</p>
           </div>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             {locationLinks.map((location) => (
@@ -266,16 +266,16 @@ export default function LocationPage() {
           </div>
           <div className="mt-12 grid gap-6 md:grid-cols-3">
             <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
-              <h3 className="text-2xl font-semibold tracking-tight text-slate-950">{"{{LOCATION5_INFO_CONTENT_BLOCK_1_TITLE}}"}</h3>
-              <p className="mt-3 text-base leading-7 text-slate-600">{"{{LOCATION5_INFO_CONTENT_BLOCK_1_BODY}}"}</p>
+              <h3 className="text-2xl font-semibold tracking-tight text-slate-950">{"A vehicle for the job"}</h3>
+              <p className="mt-3 text-base leading-7 text-slate-600">{"Choose from everyday cars, larger rental vehicles and specialist options to suit short trips, planned jobs and commercial use."}</p>
             </div>
             <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
-              <h3 className="text-2xl font-semibold tracking-tight text-slate-950">{"{{LOCATION5_INFO_CONTENT_BLOCK_2_TITLE}}"}</h3>
-              <p className="mt-3 text-base leading-7 text-slate-600">{"{{LOCATION5_INFO_CONTENT_BLOCK_2_BODY}}"}</p>
+              <h3 className="text-2xl font-semibold tracking-tight text-slate-950">{"Hire terms that fit"}</h3>
+              <p className="mt-3 text-base leading-7 text-slate-600">{"Flexible rental periods help whether you need a vehicle for a day, a weekend, a working week or a longer requirement."}</p>
             </div>
             <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
-              <h3 className="text-2xl font-semibold tracking-tight text-slate-950">{"{{LOCATION5_INFO_CONTENT_BLOCK_3_TITLE}}"}</h3>
-              <p className="mt-3 text-base leading-7 text-slate-600">{"{{LOCATION5_INFO_CONTENT_BLOCK_3_BODY}}"}</p>
+              <h3 className="text-2xl font-semibold tracking-tight text-slate-950">{"Straightforward service"}</h3>
+              <p className="mt-3 text-base leading-7 text-slate-600">{"Our focus is on maintained vehicles, straightforward booking and practical support from first enquiry to return."}</p>
             </div>
           </div>
         </div>
@@ -285,14 +285,14 @@ export default function LocationPage() {
         <div className="mx-auto max-w-5xl">
           <div className="mx-auto max-w-3xl text-center">
             <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Local Guide"}</p>
-            <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"{{LOCATION5_LOCAL_GUIDE_SECTION_TITLE}}"}</h2>
-            <p className="mt-5 text-lg leading-8 text-slate-600">{"{{LOCATION5_LOCAL_GUIDE_SECTION_DESCRIPTION}}"}</p>
+            <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"Driving in and around Romsey"}</h2>
+            <p className="mt-5 text-lg leading-8 text-slate-600">{"Straightforward driving and journey-planning advice for collecting and using a hire vehicle around Romsey."}</p>
           </div>
           <div className="mx-auto mt-12 max-w-4xl space-y-6 text-left">
-            <p className="text-base leading-8 text-slate-600">{"{{LOCATION5_LOCAL_GUIDE_PARAGRAPH_1}}"}</p>
-            <p className="text-base leading-8 text-slate-600">{"{{LOCATION5_LOCAL_GUIDE_PARAGRAPH_2}}"}</p>
-            <p className="text-base leading-8 text-slate-600">{"{{LOCATION5_LOCAL_GUIDE_PARAGRAPH_3}}"}</p>
-            <p className="text-base leading-8 text-slate-600">{"{{LOCATION5_LOCAL_GUIDE_PARAGRAPH_4}}"}</p>
+            <p className="text-base leading-8 text-slate-600">{"Romsey is a practical place to collect a hire vehicle if you are heading across Hampshire for work, moving house or picking up larger items. Local trips often start in the town centre and then join the main local routes towards surrounding business areas, villages and larger road links, so it helps to allow a little extra time if you are travelling through busier daytime periods."}</p>
+            <p className="text-base leading-8 text-slate-600">{"For fuel and quick stop planning, Greatbridge Service Station is a useful nearby option within Romsey. If you are setting off on a longer run, topping up early can make the rest of the journey simpler, especially when you are driving a larger van, minibus or truck and want to avoid unnecessary detours once you are out on the wider route network."}</p>
+            <p className="text-base leading-8 text-slate-600">{"Romsey works well for a mix of residential and commercial hire needs. Customers often use vehicles here for home moves, furniture collection, event equipment, trade jobs and scheduled deliveries, with the town giving straightforward access to nearby parts of Test Valley and the wider Hampshire area without the feel of starting from a much busier city location."}</p>
+            <p className="text-base leading-8 text-slate-600">{"If you are unfamiliar with the area, it is worth planning loading and parking before you arrive, particularly around central streets where space can be tighter than on out-of-town runs. For longer journeys, a simple stop near Greatbridge can help you sort fuel, refreshments and final route checks before continuing, making the drive from Romsey more efficient and less rushed."}</p>
           </div>
         </div>
       </section>
@@ -300,9 +300,9 @@ export default function LocationPage() {
       <section className="bg-white px-6 py-20">
         <div className="mx-auto max-w-4xl">
           <div className="mb-12 text-center">
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"{{LOCATION5_FAQ_SECTION_KICKER}}"}</p>
-            <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"{{LOCATION5_FAQ_SECTION_TITLE}}"}</h2>
-            <p className="mt-4 text-lg leading-8 text-slate-600">{"{{LOCATION5_FAQ_SECTION_DESCRIPTION}}"}</p>
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Romsey hire FAQs"}</p>
+            <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"Helpful answers before you book"}</h2>
+            <p className="mt-4 text-lg leading-8 text-slate-600">{"Answers to common questions about arranging vehicle hire in Romsey, from booking notice to vehicle types and rental flexibility."}</p>
           </div>
           <div className="rounded-3xl border border-slate-200 bg-slate-50 px-6 shadow-sm">
             {faqs.map((item, index) => (
@@ -320,8 +320,8 @@ export default function LocationPage() {
 
       <section className="bg-[#00B395] px-6 py-16 text-center text-white">
         <div className="mx-auto max-w-2xl">
-          <h2 className="mb-4 text-4xl font-bold">{"{{LOCATION5_CTA_TITLE}}"}</h2>
-          <p className="mb-8 text-lg text-white/85">{"{{LOCATION5_CTA_DESCRIPTION}}"}</p>
+          <h2 className="mb-4 text-4xl font-bold">{"Need vehicle hire in Romsey?"}</h2>
+          <p className="mb-8 text-lg text-white/85">{"Tell us what you need to move, carry or organise and we will help you choose a suitable rental vehicle for Romsey and the surrounding area."}</p>
           <Button size="lg" className="bg-white text-[#00B395] hover:bg-gray-100" asChild>
             <a href={phoneHref}>Book Now</a>
           </Button>

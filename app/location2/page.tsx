@@ -20,26 +20,26 @@ import {
 } from "lucide-react";
 
 export default function LocationPage() {
-  const locationLinks = buildLocationLinks("{{LOCATION_2_NAME}}");
-  const heroImage = { src: "/images/location2-image1.jpeg", alt: "{{LOCATION2_IMAGE_1_ALT}}" };
-  const supportImage = { src: "/images/location2-image2.jpeg", alt: "{{LOCATION2_IMAGE_2_ALT}}" };
+  const locationLinks = buildLocationLinks("Chandler's Ford");
+  const heroImage = { src: "/images/location2-image1.jpeg", alt: "Modern hire van near a clean business and retail area in Chandler's Ford" };
+  const supportImage = { src: "/images/location2-image2.jpeg", alt: "Customer and staff member planning a route beside a parked rental van in Chandler's Ford" };
   const faqs = [
-    { question: "{{LOCATION2_FAQ_1_QUESTION}}", answer: "{{LOCATION2_FAQ_1_ANSWER}}" },
-    { question: "{{LOCATION2_FAQ_2_QUESTION}}", answer: "{{LOCATION2_FAQ_2_ANSWER}}" },
-    { question: "{{LOCATION2_FAQ_3_QUESTION}}", answer: "{{LOCATION2_FAQ_3_ANSWER}}" },
-    { question: "{{LOCATION2_FAQ_4_QUESTION}}", answer: "{{LOCATION2_FAQ_4_ANSWER}}" },
-    { question: "{{LOCATION2_FAQ_5_QUESTION}}", answer: "{{LOCATION2_FAQ_5_ANSWER}}" },
+    { question: "Can I arrange vehicle hire in Chandler's Ford?", answer: "Yes, we provide vehicle hire for Chandler's Ford, covering personal and business needs with a range of practical rental options." },
+    { question: "What types of vehicles are available for Chandler's Ford bookings?", answer: "Yes, car hire is available for everyday driving, short trips and longer journeys, subject to availability." },
+    { question: "Do you offer flexible rental periods for Chandler's Ford customers?", answer: "Yes, free delivery and collection helps make local bookings more convenient." },
+    { question: "Is Chandler's Ford a good location for business vehicle hire?", answer: "Yes, we support business users who need practical self-drive vehicles for transport and temporary operational cover." },
+    { question: "Can I hire a minibus or larger vehicle from Chandler's Ford?", answer: "It is best to check in advance, especially if you need a specific type of vehicle or have fixed dates." },
   ];
   const trustCards = [
-    { title: "{{LOCATION2_TRUST_CARD_1_TITLE}}", description: "{{LOCATION2_TRUST_CARD_1_DESCRIPTION}}", icon: ShieldCheck },
-    { title: "{{LOCATION2_TRUST_CARD_2_TITLE}}", description: "{{LOCATION2_TRUST_CARD_2_DESCRIPTION}}", icon: Star },
-    { title: "{{LOCATION2_TRUST_CARD_3_TITLE}}", description: "{{LOCATION2_TRUST_CARD_3_DESCRIPTION}}", icon: Users },
+    { title: "Ready for the road", description: "Vehicles prepared for dependable self-drive hire across local and longer-distance journeys.", icon: ShieldCheck },
+    { title: "Hire that fits the job", description: "Short-term and longer bookings available for personal jobs, business transport and planned trips.", icon: Star },
+    { title: "Helpful local support", description: "Free delivery and collection helps keep vehicle hire practical around Fair Oak and nearby areas.", icon: Users },
   ];
   const featureStats = [
-    { value: "Car Hire", label: "{{LOCATION2_FEATURE_CARD_1_DESCRIPTION}}" },
-    { value: "Van Hire", label: "{{LOCATION2_FEATURE_CARD_2_DESCRIPTION}}" },
-    { value: "Minibus Hire", label: "{{LOCATION2_FEATURE_CARD_3_DESCRIPTION}}" },
-    { value: "Truck Hire", label: "{{LOCATION2_FEATURE_CARD_4_DESCRIPTION}}" },
+    { value: "Car Hire", label: "Vans for store collections, moving jobs, trade tasks and local delivery runs." },
+    { value: "Van Hire", label: "Cars for practical day-to-day travel, appointments and business mileage." },
+    { value: "Minibus Hire", label: "Minibuses for events, shared trips and organised group travel." },
+    { value: "Truck Hire", label: "Trucks for larger loads, equipment moves and commercial transport work." },
   ];
   const vehicleCards = [
     { src: "/images/smallvan1.jpg", alt: "Small van hire vehicle", title: "Small Vans" },
@@ -52,9 +52,9 @@ export default function LocationPage() {
     { src: "/images/7.5tonnecurtainsidehire.jpg", alt: "7.5 tonne curtainside truck hire vehicle", title: "Truck Hire" },
   ];
   const benefits = [
-    { icon: BadgePoundSterling, title: "{{LOCATION2_BENEFIT_1_TITLE}}", description: "{{LOCATION2_BENEFIT_1_DESCRIPTION}}", detail: "{{LOCATION2_BENEFIT_1_DETAIL}}" },
-    { icon: Clock3, title: "{{LOCATION2_BENEFIT_2_TITLE}}", description: "{{LOCATION2_BENEFIT_2_DESCRIPTION}}", detail: "{{LOCATION2_BENEFIT_2_DETAIL}}" },
-    { icon: CheckCircle2, title: "{{LOCATION2_BENEFIT_3_TITLE}}", description: "{{LOCATION2_BENEFIT_3_DESCRIPTION}}", detail: "{{LOCATION2_BENEFIT_3_DETAIL}}" },
+    { icon: BadgePoundSterling, title: "Right-size vehicle choice", description: "Book the type of vehicle that actually suits the route, load or number of passengers.", detail: "That helps avoid paying for space you do not need or struggling with a vehicle that is too small." },
+    { icon: Clock3, title: "Hire that fits your timing", description: "Flexible hire periods work well for short errands, longer projects and temporary business requirements.", detail: "It is a practical option when transport needs are changing week to week." },
+    { icon: CheckCircle2, title: "Easier to organise", description: "Delivery and collection can save extra travel time in a busy area like Hedge End.", detail: "That is especially helpful when your booking is tied to a collection slot, moving day or scheduled job." },
   ];
 
   return (
@@ -103,8 +103,8 @@ export default function LocationPage() {
           <div className="relative z-10 grid gap-12 lg:grid-cols-[1fr_420px] lg:items-center">
             <div className="max-w-3xl">
               <div className="flex flex-col gap-6">
-                <h1 className="text-5xl font-bold tracking-tight">{"{{LOCATION2_HERO_TITLE}}"}</h1>
-                <p className="text-xl text-white">{"{{LOCATION2_HERO_SUBTITLE}}"}</p>
+                <h1 className="text-5xl font-bold tracking-tight">{"Straightforward Vehicle Hire in Chandler's Ford"}</h1>
+                <p className="text-xl text-white">{"From vans for bulky pickups to cars, minibuses and trucks, we help Hedge End customers book practical self-drive transport with flexible support."}</p>
                 <Button size="lg" className="w-fit bg-[#00B395] text-white hover:bg-[#00997f]" asChild>
                   <a href={phoneHref}>Book Now</a>
                 </Button>
@@ -127,18 +127,18 @@ export default function LocationPage() {
               <div className="max-w-2xl">
                 <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#00B395]/25 bg-white px-3 py-1 text-sm font-medium text-[#00B395]">
                   <PhoneCall className="h-4 w-4" />
-                  {"{{LOCATION2_BOOKING_BADGE_TEXT}}"}
+                  {"Flexible hire around Hedge End"}
                 </div>
-                <h2 className="text-2xl font-bold tracking-tight text-slate-950 md:text-3xl">{"{{LOCATION2_BOOKING_SECTION_TITLE}}"}</h2>
-                <p className="mt-3 text-base leading-7 text-slate-600">{"{{LOCATION2_BOOKING_SECTION_DESCRIPTION}}"}</p>
+                <h2 className="text-2xl font-bold tracking-tight text-slate-950 md:text-3xl">{"Arrange a Hedge End hire with less hassle"}</h2>
+                <p className="mt-3 text-base leading-7 text-slate-600">{"Hiring a vehicle in Hedge End should be simple. We help match the booking to what you are actually doing, whether that is a retail collection, a home move, temporary fleet support or planned group travel."}</p>
                 <div className="mt-5 flex flex-wrap gap-3 text-sm text-slate-600">
                   <div className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 shadow-sm">
                     <PhoneCall className="h-4 w-4 text-[#00B395]" />
-                    {"{{LOCATION2_BOOKING_FEATURE_1}}"}
+                    {"Vehicle delivery available"}
                   </div>
                   <div className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 shadow-sm">
                     <Clock3 className="h-4 w-4 text-[#00B395]" />
-                    {"{{LOCATION2_BOOKING_FEATURE_2}}"}
+                    {"Support for business and personal use"}
                   </div>
                 </div>
               </div>
@@ -153,8 +153,8 @@ export default function LocationPage() {
       <section id="trust" className="px-6 py-16">
         <div className="mx-auto max-w-6xl">
           <div className="mb-12 text-center">
-            <h2 className="mb-4 text-4xl font-bold">{"{{LOCATION2_TRUST_SECTION_TITLE}}"}</h2>
-            <p className="text-lg text-muted-foreground">{"{{LOCATION2_TRUST_SECTION_DESCRIPTION}}"}</p>
+            <h2 className="mb-4 text-4xl font-bold">{"Why hire with us in Fair Oak"}</h2>
+            <p className="text-lg text-muted-foreground">{"We keep vehicle hire straightforward in Fair Oak with practical help, flexible booking options and a fleet suited to everyday transport needs."}</p>
           </div>
           <div className="grid gap-8 md:grid-cols-3 md:auto-rows-fr">
             {trustCards.map((item) => (
@@ -173,9 +173,9 @@ export default function LocationPage() {
       <section className="bg-white px-6 py-20 text-slate-950">
         <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
           <div>
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"{{LOCATION2_FEATURE_SECTION_KICKER}}"}</p>
-            <h2 className="max-w-2xl text-4xl font-bold tracking-tight md:text-5xl">{"{{LOCATION2_FEATURE_SECTION_TITLE}}"}</h2>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">{"{{LOCATION2_FEATURE_SECTION_DESCRIPTION}}"}</p>
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Available in Hedge End"}</p>
+            <h2 className="max-w-2xl text-4xl font-bold tracking-tight md:text-5xl">{"Vehicle hire for shopping trips, work and longer journeys"}</h2>
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">{"Whether you need something for a quick local run or a larger transport task, we offer suitable self-drive options in Hedge End."}</p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Button size="lg" className="bg-[#00B395] text-white hover:bg-[#00997f]" asChild>
                 <a href={phoneHref}>No Hassle Booking {phoneDisplay}</a>
@@ -195,13 +195,13 @@ export default function LocationPage() {
 
       <section className="bg-white px-6 py-20">
         <div className="mx-auto max-w-5xl text-center">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"{{LOCATION2_CONTENT_SECTION_KICKER}}"}</p>
-          <h2 className="mx-auto max-w-3xl text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"{{LOCATION2_CONTENT_SECTION_TITLE}}"}</h2>
+          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Hedge End vehicle hire"}</p>
+          <h2 className="mx-auto max-w-3xl text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"Self-drive vehicle hire that works for Hedge End"}</h2>
           <div className="mx-auto mt-8 max-w-3xl space-y-6 text-lg leading-8 text-slate-600">
-            <p>{"{{LOCATION2_CONTENT_SECTION_PARAGRAPH_1}}"}</p>
-            <p>{"{{LOCATION2_CONTENT_SECTION_PARAGRAPH_2}}"}</p>
-            <p>{"{{LOCATION2_CONTENT_SECTION_PARAGRAPH_3}}"}</p>
-            <p>{"{{LOCATION2_CONTENT_SECTION_PARAGRAPH_4}}"}</p>
+            <p>{"Hedge End is one of those places where flexible transport is often essential. With busy retail areas, residential neighbourhoods and quick access to larger routes, customers regularly need hire vehicles for collections, deliveries, moving jobs and day-to-day travel."}</p>
+            <p>{"Southern Van Hire provides self-drive options that suit that mix. Van hire is ideal for bulky purchases and practical transport tasks, while cars offer a simple answer for local and longer-distance driving. Minibuses and trucks are available when the job calls for extra passenger space or carrying capacity."}</p>
+            <p>{"The area's connections towards the M27, Southampton and Botley make Hedge End a useful base for both local and regional journeys. Having a maintained vehicle and a booking arranged around your timings helps keep things straightforward."}</p>
+            <p>{"We focus on practical service rather than overpromising. That means clear communication, broad vehicle choice and support for both private customers and businesses in Hedge End."}</p>
           </div>
         </div>
       </section>
@@ -210,9 +210,9 @@ export default function LocationPage() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(0,179,149,0.14),_transparent_55%)] pointer-events-none" />
         <div className="mx-auto max-w-6xl">
           <div className="mx-auto mb-14 max-w-3xl text-center">
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"{{LOCATION2_BENEFITS_SECTION_KICKER}}"}</p>
-            <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"{{LOCATION2_BENEFITS_SECTION_TITLE}}"}</h2>
-            <p className="mt-5 text-lg leading-8 text-slate-600">{"{{LOCATION2_BENEFITS_SECTION_DESCRIPTION}}"}</p>
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Built around convenience"}</p>
+            <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"Useful hire benefits for Hedge End journeys"}</h2>
+            <p className="mt-5 text-lg leading-8 text-slate-600">{"Practical reasons customers in Hedge End use us for personal travel, moving jobs and business transport."}</p>
           </div>
           <div className="grid gap-8 md:grid-cols-3">
             {benefits.map((item) => (
@@ -254,8 +254,8 @@ export default function LocationPage() {
         <div className="mx-auto max-w-5xl">
           <div className="mx-auto max-w-3xl text-center">
             <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Nearby Locations"}</p>
-            <h2 className="text-3xl font-bold tracking-tight text-slate-950 md:text-4xl">{"{{LOCATION2_NEARBY_LOCATIONS_SECTION_TITLE}}"}</h2>
-            <p className="mt-4 text-lg leading-8 text-slate-600">{"{{LOCATION2_NEARBY_LOCATIONS_SECTION_INTRO}}"}</p>
+            <h2 className="text-3xl font-bold tracking-tight text-slate-950 md:text-4xl">{"Areas served around Fair Oak"}</h2>
+            <p className="mt-4 text-lg leading-8 text-slate-600">{"If Fair Oak is your starting point, we also cover surrounding Hampshire towns and villages that are commonly used for collections, drop-offs and onward travel."}</p>
           </div>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             {locationLinks.map((location) => (
@@ -266,16 +266,16 @@ export default function LocationPage() {
           </div>
           <div className="mt-12 grid gap-6 md:grid-cols-3">
             <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
-              <h3 className="text-2xl font-semibold tracking-tight text-slate-950">{"{{LOCATION2_INFO_CONTENT_BLOCK_1_TITLE}}"}</h3>
-              <p className="mt-3 text-base leading-7 text-slate-600">{"{{LOCATION2_INFO_CONTENT_BLOCK_1_BODY}}"}</p>
+              <h3 className="text-2xl font-semibold tracking-tight text-slate-950">{"Flexible vehicle choices"}</h3>
+              <p className="mt-3 text-base leading-7 text-slate-600">{"Choose from practical hire vehicles for short jobs, planned trips, business use and longer bookings, with straightforward support from enquiry to return."}</p>
             </div>
             <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
-              <h3 className="text-2xl font-semibold tracking-tight text-slate-950">{"{{LOCATION2_INFO_CONTENT_BLOCK_2_TITLE}}"}</h3>
-              <p className="mt-3 text-base leading-7 text-slate-600">{"{{LOCATION2_INFO_CONTENT_BLOCK_2_BODY}}"}</p>
+              <h3 className="text-2xl font-semibold tracking-tight text-slate-950">{"Well-maintained fleet"}</h3>
+              <p className="mt-3 text-base leading-7 text-slate-600">{"Our rental vehicles are prepared to a good standard and suited to everyday driving, helping you get on with the journey without unnecessary hassle."}</p>
             </div>
             <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
-              <h3 className="text-2xl font-semibold tracking-tight text-slate-950">{"{{LOCATION2_INFO_CONTENT_BLOCK_3_TITLE}}"}</h3>
-              <p className="mt-3 text-base leading-7 text-slate-600">{"{{LOCATION2_INFO_CONTENT_BLOCK_3_BODY}}"}</p>
+              <h3 className="text-2xl font-semibold tracking-tight text-slate-950">{"Convenient local service"}</h3>
+              <p className="mt-3 text-base leading-7 text-slate-600">{"Free delivery and collection can make hiring easier around Fair Oak, whether you need a vehicle at home, at work or at a local site."}</p>
             </div>
           </div>
         </div>
@@ -285,14 +285,14 @@ export default function LocationPage() {
         <div className="mx-auto max-w-5xl">
           <div className="mx-auto max-w-3xl text-center">
             <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Local Guide"}</p>
-            <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"{{LOCATION2_LOCAL_GUIDE_SECTION_TITLE}}"}</h2>
-            <p className="mt-5 text-lg leading-8 text-slate-600">{"{{LOCATION2_LOCAL_GUIDE_SECTION_DESCRIPTION}}"}</p>
+            <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"Driving in and around Chandler's Ford"}</h2>
+            <p className="mt-5 text-lg leading-8 text-slate-600">{"Useful driving pointers for getting the most from a hire vehicle in and around Chandler's Ford."}</p>
           </div>
           <div className="mx-auto mt-12 max-w-4xl space-y-6 text-left">
-            <p className="text-base leading-8 text-slate-600">{"{{LOCATION2_LOCAL_GUIDE_PARAGRAPH_1}}"}</p>
-            <p className="text-base leading-8 text-slate-600">{"{{LOCATION2_LOCAL_GUIDE_PARAGRAPH_2}}"}</p>
-            <p className="text-base leading-8 text-slate-600">{"{{LOCATION2_LOCAL_GUIDE_PARAGRAPH_3}}"}</p>
-            <p className="text-base leading-8 text-slate-600">{"{{LOCATION2_LOCAL_GUIDE_PARAGRAPH_4}}"}</p>
+            <p className="text-base leading-8 text-slate-600">{"Chandler's Ford sits well for straightforward trips across the Eastleigh side of Hampshire, so it works well if you need a hire vehicle for local jobs and slightly longer runs. For most journeys, drivers usually plan around the main local routes leading toward Eastleigh, Southampton and the wider M3 corridor, which helps when timing collections, deliveries or household moves."}</p>
+            <p className="text-base leading-8 text-slate-600">{"If you are hiring for shopping collections, business calls or moving bulky items, it is worth allowing extra time at the start and end of the day when local roads are busier with commuter traffic. A slightly earlier pickup often makes loading easier, especially if you are heading from Chandler's Ford into busier urban areas where parking and turning space can be tighter."}</p>
+            <p className="text-base leading-8 text-slate-600">{"For longer hires, Chandler's Ford is a practical base because you can reach nearby towns quickly without feeling tied to a city-centre start point. That suits customers using vans for furniture collection, cars for everyday travel, minibuses for group transport or trucks for planned commercial work across Hampshire and beyond."}</p>
+            <p className="text-base leading-8 text-slate-600">{"Before setting off, it helps to check your route for height limits, loading access and suitable stopping points, particularly if you are driving a larger vehicle for the first time. Keeping fuel, parking and unloading in mind from the outset usually makes a Chandler's Ford hire much smoother, whether you are staying local or heading further across the region."}</p>
           </div>
         </div>
       </section>
@@ -300,9 +300,9 @@ export default function LocationPage() {
       <section className="bg-white px-6 py-20">
         <div className="mx-auto max-w-4xl">
           <div className="mb-12 text-center">
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"{{LOCATION2_FAQ_SECTION_KICKER}}"}</p>
-            <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"{{LOCATION2_FAQ_SECTION_TITLE}}"}</h2>
-            <p className="mt-4 text-lg leading-8 text-slate-600">{"{{LOCATION2_FAQ_SECTION_DESCRIPTION}}"}</p>
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Hedge End help"}</p>
+            <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"Hedge End vehicle hire FAQs"}</h2>
+            <p className="mt-4 text-lg leading-8 text-slate-600">{"Answers to common questions about booking vehicles in Hedge End."}</p>
           </div>
           <div className="rounded-3xl border border-slate-200 bg-slate-50 px-6 shadow-sm">
             {faqs.map((item, index) => (
@@ -320,8 +320,8 @@ export default function LocationPage() {
 
       <section className="bg-[#00B395] px-6 py-16 text-center text-white">
         <div className="mx-auto max-w-2xl">
-          <h2 className="mb-4 text-4xl font-bold">{"{{LOCATION2_CTA_TITLE}}"}</h2>
-          <p className="mb-8 text-lg text-white/85">{"{{LOCATION2_CTA_DESCRIPTION}}"}</p>
+          <h2 className="mb-4 text-4xl font-bold">{"Need a hire vehicle in Hedge End?"}</h2>
+          <p className="mb-8 text-lg text-white/85">{"Tell us what you need to move, carry or plan for, and we will help you book a suitable vehicle in Hedge End."}</p>
           <Button size="lg" className="bg-white text-[#00B395] hover:bg-gray-100" asChild>
             <a href={phoneHref}>Book Now</a>
           </Button>
