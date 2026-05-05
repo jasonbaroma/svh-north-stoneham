@@ -1,5 +1,6 @@
 ﻿"use client";
 
+import type { Metadata } from "next";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import Image from "next/image";
@@ -7,6 +8,7 @@ import Link from "next/link";
 import { mainLocationName } from "@/lib/company";
 import { phoneDisplay, phoneHref } from "@/lib/contact";
 import { buildLocationLinks } from "@/lib/location-links";
+import { slugifyLocation } from "@/lib/utils";
 import {
   BadgePoundSterling,
   CheckCircle2,
@@ -19,27 +21,33 @@ import {
   Users,
 } from "lucide-react";
 
+export const metadata = {
+  alternates: {
+    canonical: `/${slugifyLocation("Eastleigh")}`,
+  },
+} satisfies Metadata;
+
 export default function LocationPage() {
-  const locationLinks = buildLocationLinks("Romsey");
-  const heroImage = { src: "/images/location5-image1.jpeg", alt: "Hire car and van parked near a traditional market town street in Romsey" };
-  const supportImage = { src: "/images/location5-image2.jpeg", alt: "Customer checking a rental car with a staff member before setting off from Romsey" };
+  const locationLinks = buildLocationLinks("Eastleigh");
+  const heroImage = { src: "/images/location5-image1.jpeg", alt: "Hire van parked near central Eastleigh with local shops and road links nearby" };
+  const supportImage = { src: "/images/location5-image2.jpeg", alt: "Self-drive rental vehicle ready for collection in the Eastleigh area" };
   const faqs = [
-    { question: "Can I arrange last-minute vehicle hire in Romsey?", answer: "Yes, subject to availability we can usually help with short-notice bookings in Romsey. It is always best to book ahead if you need a specific vehicle type." },
-    { question: "Do you supply hire vehicles for both personal and business use?", answer: "Yes, we hire to private customers and businesses. That includes one-off jobs, temporary cover and more regular transport needs." },
-    { question: "Are longer rentals available from Romsey?", answer: "In many cases, yes. Let us know your preferred dates and vehicle type and we can advise on the most practical hire period." },
-    { question: "What licence do I need to hire a vehicle?", answer: "A standard driving licence is often enough for many cars and vans, but requirements vary by vehicle. We will confirm what is needed when you book." },
-    { question: "Do you offer delivery and collection in Romsey?", answer: "Yes, delivery and collection can often be arranged, which is useful if you are hiring for a move, business run or time-sensitive job." },
+    { question: "What vehicles can I hire in Eastleigh?", answer: "We offer vans, cars, minibuses and trucks, subject to availability and booking requirements." },
+    { question: "Can I book for more than one day?", answer: "Yes, where available we can discuss short-term hire as well as longer rental periods depending on what you need." },
+    { question: "Is Eastleigh vehicle hire suitable for personal and business use?", answer: "Yes, many Eastleigh customers hire for moving home, collecting furniture, trade work, group travel and temporary business transport." },
+    { question: "Do you offer delivery and collection around Eastleigh?", answer: "In many cases, yes. It is best to ask when booking so the most practical arrangement can be confirmed." },
+    { question: "How do I choose the right hire vehicle?", answer: "Bring your planned load, passenger numbers or journey type and we can help point you towards the most suitable vehicle category." },
   ];
   const trustCards = [
-    { title: "Maintained vehicles", description: "Our rental vehicles are kept in good order and prepared for practical day-to-day use.", icon: ShieldCheck },
-    { title: "Flexible rental options", description: "From one-day bookings to longer hire periods, we aim to keep arrangements workable and clear.", icon: Star },
-    { title: "Personal and business hire", description: "We support both private and commercial customers with straightforward advice and dependable service.", icon: Users },
+    { title: "Maintained rental fleet", description: "Vehicles are prepared with everyday reliability and straightforward use in mind.", icon: ShieldCheck },
+    { title: "Useful for work or home", description: "We support personal hirers and businesses with flexible vehicle options for different jobs.", icon: Star },
+    { title: "Simple, helpful service", description: "Booking is kept clear and practical, with help available when you need guidance on vehicle choice.", icon: Users },
   ];
   const featureStats = [
-    { value: "Car Hire", label: "Cars for local trips, business travel and everyday driving." },
-    { value: "Van Hire", label: "Vans sized for moves, collections, deliveries and trade work." },
-    { value: "Minibus Hire", label: "Minibuses for group outings, club travel and event transport." },
-    { value: "Truck Hire", label: "Trucks for larger loads, heavier equipment and commercial jobs." },
+    { value: "Car Hire", label: "Practical van hire for moving, deliveries and everyday transport tasks." },
+    { value: "Van Hire", label: "Convenient car hire for local driving, business trips and temporary replacement use." },
+    { value: "Minibus Hire", label: "Minibus options for group outings, events and organised travel." },
+    { value: "Truck Hire", label: "Truck hire for heavier loads, site work and larger transport requirements." },
   ];
   const vehicleCards = [
     { src: "/images/smallvan1.jpg", alt: "Small van hire vehicle", title: "Small Vans" },
@@ -52,9 +60,9 @@ export default function LocationPage() {
     { src: "/images/7.5tonnecurtainsidehire.jpg", alt: "7.5 tonne curtainside truck hire vehicle", title: "Truck Hire" },
   ];
   const benefits = [
-    { icon: BadgePoundSterling, title: "A fleet that covers more jobs", description: "Hiring is easier when you can choose from different vehicle types instead of forcing one option to fit every job.", detail: "That helps whether you are planning a house move, carrying equipment, arranging group travel or simply need temporary transport." },
-    { icon: Clock3, title: "Useful flexibility", description: "Flexible booking periods allow you to hire for the time you actually need, not just a one-size-fits-all slot.", detail: "This can be useful for staged moves, business schedules, overnight trips and longer vehicle requirements." },
-    { icon: CheckCircle2, title: "Straight answers and support", description: "A local, service-led approach helps keep the hire process clear from first enquiry through to return.", detail: "That means better support if you are planning around work, family commitments or timed collections." },
+    { icon: BadgePoundSterling, title: "More suitable vehicle options", description: "We offer a wide range of vehicles to suit everyday driving, moving jobs and business transport.", detail: "That means you can book what actually fits the load, route or passenger requirement instead of trying to adapt the wrong vehicle." },
+    { icon: Clock3, title: "Easy to arrange", description: "Booking support stays practical, with clear advice on timing, vehicle type and hire length.", detail: "For Eastleigh customers, that means the freedom to book for a short local job, a weekend move or a longer business rental when extra transport is needed." },
+    { icon: CheckCircle2, title: "Flexible around your plans", description: "Flexible rental periods are useful for day hires, weekends and longer bookings.", detail: "It gives you room to plan properly if the job involves multiple stops, changing schedules or longer-distance travel." },
   ];
 
   return (
@@ -103,8 +111,8 @@ export default function LocationPage() {
           <div className="relative z-10 grid gap-12 lg:grid-cols-[1fr_420px] lg:items-center">
             <div className="max-w-3xl">
               <div className="flex flex-col gap-6">
-                <h1 className="text-5xl font-bold tracking-tight">{"Reliable vehicle hire in Romsey"}</h1>
-                <p className="text-xl text-white">{"Flexible self-drive vehicle hire for home moves, business transport, group travel and day-to-day driving across Romsey and the surrounding area."}</p>
+                <h1 className="text-5xl font-bold tracking-tight">{"Vehicle Hire in Eastleigh"}</h1>
+                <p className="text-xl text-white">{"Flexible self-drive van, car, minibus and truck hire for Eastleigh with practical support, maintained vehicles and easy booking options."}</p>
                 <Button size="lg" className="w-fit bg-[#00B395] text-white hover:bg-[#00997f]" asChild>
                   <a href={phoneHref}>Book Now</a>
                 </Button>
@@ -127,14 +135,14 @@ export default function LocationPage() {
               <div className="max-w-2xl">
                 <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#00B395]/25 bg-white px-3 py-1 text-sm font-medium text-[#00B395]">
                   <PhoneCall className="h-4 w-4" />
-                  {"Flexible vehicle hire options"}
+                  {"Flexible local vehicle hire"}
                 </div>
-                <h2 className="text-2xl font-bold tracking-tight text-slate-950 md:text-3xl">{"Simple vehicle hire for Romsey customers"}</h2>
-                <p className="mt-3 text-base leading-7 text-slate-600">{"Booking vehicle hire in Romsey should feel straightforward. We help arrange the right car, van, minibus or truck for the job, with practical rental periods and support for both private and business customers."}</p>
+                <h2 className="text-2xl font-bold tracking-tight text-slate-950 md:text-3xl">{"Book Eastleigh vehicle hire without the fuss"}</h2>
+                <p className="mt-3 text-base leading-7 text-slate-600">{"Arranging vehicle hire in Eastleigh should be simple. We help with short notice bookings where possible, flexible rental periods and practical delivery or collection options to keep your plans moving."}</p>
                 <div className="mt-5 flex flex-wrap gap-3 text-sm text-slate-600">
                   <div className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 shadow-sm">
                     <PhoneCall className="h-4 w-4 text-[#00B395]" />
-                    {"Flexible hire periods"}
+                    {"Flexible self-drive hire"}
                   </div>
                   <div className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 shadow-sm">
                     <Clock3 className="h-4 w-4 text-[#00B395]" />
@@ -153,8 +161,8 @@ export default function LocationPage() {
       <section id="trust" className="px-6 py-16">
         <div className="mx-auto max-w-6xl">
           <div className="mb-12 text-center">
-            <h2 className="mb-4 text-4xl font-bold">{"A dependable choice for Romsey vehicle hire"}</h2>
-            <p className="text-lg text-muted-foreground">{"Romsey customers choose us for practical service, a broad range of vehicles and rental support that is geared around real transport needs."}</p>
+            <h2 className="mb-4 text-4xl font-bold">{"Why Eastleigh customers hire with us"}</h2>
+            <p className="text-lg text-muted-foreground">{"Eastleigh customers choose us for sensible vehicle options, dependable preparation and a service style that keeps things clear from the start."}</p>
           </div>
           <div className="grid gap-8 md:grid-cols-3 md:auto-rows-fr">
             {trustCards.map((item) => (
@@ -174,8 +182,8 @@ export default function LocationPage() {
         <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
           <div>
             <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Vehicle options"}</p>
-            <h2 className="max-w-2xl text-4xl font-bold tracking-tight md:text-5xl">{"Cars, vans, minibuses and trucks for Romsey hire"}</h2>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">{"From a short local rental to a larger commercial requirement, we offer a broad vehicle range for Romsey customers who need practical transport without unnecessary hassle."}</p>
+            <h2 className="max-w-2xl text-4xl font-bold tracking-tight md:text-5xl">{"Hire vehicles available in Eastleigh"}</h2>
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">{"From small local jobs to larger business requirements, Eastleigh customers can choose from a broad range of self-drive vehicles."}</p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Button size="lg" className="bg-[#00B395] text-white hover:bg-[#00997f]" asChild>
                 <a href={phoneHref}>No Hassle Booking {phoneDisplay}</a>
@@ -195,13 +203,13 @@ export default function LocationPage() {
 
       <section className="bg-white px-6 py-20">
         <div className="mx-auto max-w-5xl text-center">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Why hire with us"}</p>
-          <h2 className="mx-auto max-w-3xl text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"Dependable self-drive hire in and around Romsey"}</h2>
+          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Why drivers book with us"}</p>
+          <h2 className="mx-auto max-w-3xl text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"Straightforward vehicle hire for Eastleigh jobs and journeys"}</h2>
           <div className="mx-auto mt-8 max-w-3xl space-y-6 text-lg leading-8 text-slate-600">
-            <p>{"Romsey is well placed for local trips, business travel and larger journeys across Hampshire, so having the right vehicle makes a real difference. Southern Van Hire offers practical rental options for everyday transport, planned moves and short-term fleet cover."}</p>
-            <p>{"Our range includes compact cars, larger vans, minibuses for group travel and trucks for heavier jobs. Whether you are collecting furniture, covering a busy trading week or organising transport for an event, we keep the process clear and workable."}</p>
-            <p>{"Customers in Romsey often need a hire vehicle that can handle town driving as well as quick access towards Southampton, Winchester and the M27 corridor. We help match the booking to the route, load and rental length rather than pushing a one-size-fits-all option."}</p>
-            <p>{"With maintained vehicles, flexible arrangements and a service-led approach, we aim to take the hassle out of self-drive hire. That means dependable transport, practical advice and support that works for real journeys."}</p>
+            <p>{"Eastleigh is a practical place to hire from, whether you are moving between neighbourhoods, collecting stock, heading to a job, or travelling out towards Southampton, Winchester or the M3 corridor. We provide vans, cars, minibuses and trucks for straightforward self-drive use."}</p>
+            <p>{"For customers in Eastleigh, we keep the hire process practical and straightforward. Whether you need a compact car for local travel, a van for collecting furniture, a minibus for group transport or a truck for heavier work, we help match the vehicle to the job without unnecessary complication."}</p>
+            <p>{"Eastleigh is well placed for both local journeys and wider trips across Hampshire, so flexibility matters. Southern Van Hire supports short-term and longer rentals, with delivery and collection available to make hiring around Eastleigh easier for households, trades and businesses."}</p>
+            <p>{"For Eastleigh businesses, flexible rental can also help with seasonal demand, temporary cover or project work without the commitment of adding permanent vehicles. For private customers, it is a practical way to get the right transport only when it is needed."}</p>
           </div>
         </div>
       </section>
@@ -210,9 +218,9 @@ export default function LocationPage() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(0,179,149,0.14),_transparent_55%)] pointer-events-none" />
         <div className="mx-auto max-w-6xl">
           <div className="mx-auto mb-14 max-w-3xl text-center">
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"What makes us useful"}</p>
-            <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"Benefits of booking in Bishopstoke"}</h2>
-            <p className="mt-5 text-lg leading-8 text-slate-600">{"Flexible vehicle hire with practical features that make a real difference for journeys starting in Bishopstoke."}</p>
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Useful advantages"}</p>
+            <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"Why hire vehicles in Eastleigh with us"}</h2>
+            <p className="mt-5 text-lg leading-8 text-slate-600">{"Eastleigh customers benefit from broad vehicle choice, flexible rental periods and a practical service that works for both domestic and business transport needs."}</p>
           </div>
           <div className="grid gap-8 md:grid-cols-3">
             {benefits.map((item) => (
@@ -254,8 +262,8 @@ export default function LocationPage() {
         <div className="mx-auto max-w-5xl">
           <div className="mx-auto max-w-3xl text-center">
             <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Nearby Locations"}</p>
-            <h2 className="text-3xl font-bold tracking-tight text-slate-950 md:text-4xl">{"Vehicle hire around Romsey and nearby areas"}</h2>
-            <p className="mt-4 text-lg leading-8 text-slate-600">{"If Romsey is not your only stop, we also cover nearby towns and villages across this part of Hampshire, making it easier to book where it best suits your journey."}</p>
+            <h2 className="text-3xl font-bold tracking-tight text-slate-950 md:text-4xl">{"Also serving Eastleigh and nearby areas"}</h2>
+            <p className="mt-4 text-lg leading-8 text-slate-600">{"If Eastleigh is not your most convenient pickup point, we also cover other nearby Hampshire locations that are practical for surrounding towns and villages."}</p>
           </div>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             {locationLinks.map((location) => (
@@ -266,16 +274,16 @@ export default function LocationPage() {
           </div>
           <div className="mt-12 grid gap-6 md:grid-cols-3">
             <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
-              <h3 className="text-2xl font-semibold tracking-tight text-slate-950">{"A vehicle for the job"}</h3>
-              <p className="mt-3 text-base leading-7 text-slate-600">{"Choose from everyday cars, larger rental vehicles and specialist options to suit short trips, planned jobs and commercial use."}</p>
+              <h3 className="text-2xl font-semibold tracking-tight text-slate-950">{"Broad vehicle choice"}</h3>
+              <p className="mt-3 text-base leading-7 text-slate-600">{"Choose from a wide range of rental vehicles for everyday personal jobs, organised group trips and commercial transport needs."}</p>
             </div>
             <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
-              <h3 className="text-2xl font-semibold tracking-tight text-slate-950">{"Hire terms that fit"}</h3>
-              <p className="mt-3 text-base leading-7 text-slate-600">{"Flexible rental periods help whether you need a vehicle for a day, a weekend, a working week or a longer requirement."}</p>
+              <h3 className="text-2xl font-semibold tracking-tight text-slate-950">{"Hire built around your plans"}</h3>
+              <p className="mt-3 text-base leading-7 text-slate-600">{"Flexible hire periods make it easier to cover one-off tasks, planned journeys and temporary transport gaps without overcommitting."}</p>
             </div>
             <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
-              <h3 className="text-2xl font-semibold tracking-tight text-slate-950">{"Straightforward service"}</h3>
-              <p className="mt-3 text-base leading-7 text-slate-600">{"Our focus is on maintained vehicles, straightforward booking and practical support from first enquiry to return."}</p>
+              <h3 className="text-2xl font-semibold tracking-tight text-slate-950">{"Dependable service"}</h3>
+              <p className="mt-3 text-base leading-7 text-slate-600">{"Maintained vehicles and practical customer support help keep your booking simple from first enquiry to return."}</p>
             </div>
           </div>
         </div>
@@ -285,14 +293,14 @@ export default function LocationPage() {
         <div className="mx-auto max-w-5xl">
           <div className="mx-auto max-w-3xl text-center">
             <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Local Guide"}</p>
-            <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"Driving in and around Romsey"}</h2>
-            <p className="mt-5 text-lg leading-8 text-slate-600">{"Straightforward driving and journey-planning advice for collecting and using a hire vehicle around Romsey."}</p>
+            <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"Driving in Eastleigh: local hire tips"}</h2>
+            <p className="mt-5 text-lg leading-8 text-slate-600">{"Useful local driving notes for planning vehicle hire in and around Eastleigh."}</p>
           </div>
           <div className="mx-auto mt-12 max-w-4xl space-y-6 text-left">
-            <p className="text-base leading-8 text-slate-600">{"Romsey is a practical place to collect a hire vehicle if you are heading across Hampshire for work, moving house or picking up larger items. Local trips often start in the town centre and then join the main local routes towards surrounding business areas, villages and larger road links, so it helps to allow a little extra time if you are travelling through busier daytime periods."}</p>
-            <p className="text-base leading-8 text-slate-600">{"For fuel and quick stop planning, Greatbridge Service Station is a useful nearby option within Romsey. If you are setting off on a longer run, topping up early can make the rest of the journey simpler, especially when you are driving a larger van, minibus or truck and want to avoid unnecessary detours once you are out on the wider route network."}</p>
-            <p className="text-base leading-8 text-slate-600">{"Romsey works well for a mix of residential and commercial hire needs. Customers often use vehicles here for home moves, furniture collection, event equipment, trade jobs and scheduled deliveries, with the town giving straightforward access to nearby parts of Test Valley and the wider Hampshire area without the feel of starting from a much busier city location."}</p>
-            <p className="text-base leading-8 text-slate-600">{"If you are unfamiliar with the area, it is worth planning loading and parking before you arrive, particularly around central streets where space can be tighter than on out-of-town runs. For longer journeys, a simple stop near Greatbridge can help you sort fuel, refreshments and final route checks before continuing, making the drive from Romsey more efficient and less rushed."}</p>
+            <p className="text-base leading-8 text-slate-600">{"Eastleigh is straightforward to navigate for local vehicle hire, with Bishopstoke Road and Twyford Road forming useful routes through town and out towards surrounding areas. If you are collecting furniture, making deliveries or planning a home move, these main corridors help you avoid unnecessary detours and get onto the wider road network quickly."}</p>
+            <p className="text-base leading-8 text-slate-600">{"For town-centre driving, it is worth allowing a little extra time around Southampton Road, Riverside and the Woodside Avenue roundabout, especially at busier parts of the day. A slightly earlier start can make loading, short stops and drop-offs much easier if you are using a van, minibus or larger hire vehicle in Eastleigh."}</p>
+            <p className="text-base leading-8 text-slate-600">{"If you need to refuel before returning your vehicle, Eastleigh Service Station on Southampton Road is a practical nearby option, and there is also an Asda fuel station a little further out. Having a fuel stop planned in advance is helpful if you are finishing a longer day of driving or returning from several jobs across the area."}</p>
+            <p className="text-base leading-8 text-slate-600">{"Eastleigh hire vehicles are often used for practical trips rather than one single journey, from collections near the centre to business runs and event transport around town. Areas around Fleming Park and the Itchen Navigation side of Eastleigh can also mean extra local traffic at certain times, so simple route planning before you set off can save time and make the day run more smoothly."}</p>
           </div>
         </div>
       </section>
@@ -300,9 +308,9 @@ export default function LocationPage() {
       <section className="bg-white px-6 py-20">
         <div className="mx-auto max-w-4xl">
           <div className="mb-12 text-center">
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Romsey hire FAQs"}</p>
-            <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"Helpful answers before you book"}</h2>
-            <p className="mt-4 text-lg leading-8 text-slate-600">{"Answers to common questions about arranging vehicle hire in Romsey, from booking notice to vehicle types and rental flexibility."}</p>
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Eastleigh hire help"}</p>
+            <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"Eastleigh vehicle hire FAQs"}</h2>
+            <p className="mt-4 text-lg leading-8 text-slate-600">{"Answers to common questions about booking a hire vehicle in and around Eastleigh."}</p>
           </div>
           <div className="rounded-3xl border border-slate-200 bg-slate-50 px-6 shadow-sm">
             {faqs.map((item, index) => (
@@ -320,8 +328,8 @@ export default function LocationPage() {
 
       <section className="bg-[#00B395] px-6 py-16 text-center text-white">
         <div className="mx-auto max-w-2xl">
-          <h2 className="mb-4 text-4xl font-bold">{"Need vehicle hire in Romsey?"}</h2>
-          <p className="mb-8 text-lg text-white/85">{"Tell us what you need to move, carry or organise and we will help you choose a suitable rental vehicle for Romsey and the surrounding area."}</p>
+          <h2 className="mb-4 text-4xl font-bold">{"Need vehicle hire in Eastleigh?"}</h2>
+          <p className="mb-8 text-lg text-white/85">{"If you need a hire vehicle in Eastleigh, we can help you choose a practical option for personal or business use with flexible booking support."}</p>
           <Button size="lg" className="bg-white text-[#00B395] hover:bg-gray-100" asChild>
             <a href={phoneHref}>Book Now</a>
           </Button>

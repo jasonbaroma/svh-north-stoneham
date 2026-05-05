@@ -1,5 +1,6 @@
 ﻿"use client";
 
+import type { Metadata } from "next";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import Image from "next/image";
@@ -7,6 +8,7 @@ import Link from "next/link";
 import { mainLocationName } from "@/lib/company";
 import { phoneDisplay, phoneHref } from "@/lib/contact";
 import { buildLocationLinks } from "@/lib/location-links";
+import { slugifyLocation } from "@/lib/utils";
 import {
   BadgePoundSterling,
   CheckCircle2,
@@ -19,27 +21,33 @@ import {
   Users,
 } from "lucide-react";
 
+export const metadata = {
+  alternates: {
+    canonical: `/${slugifyLocation("Hedge End")}`,
+  },
+} satisfies Metadata;
+
 export default function LocationPage() {
   const locationLinks = buildLocationLinks("Hedge End");
-  const heroImage = { src: "/images/location6-image1.jpeg", alt: "White rental van near a landscaped access road and retail area in Hedge End" };
-  const supportImage = { src: "/images/location6-image2.jpeg", alt: "Travellers loading suitcases into a hired vehicle at a transport pickup area near Hedge End" };
+  const heroImage = { src: "/images/location6-image1.jpeg", alt: "Rental van near Hedge End retail and road links in Hampshire" };
+  const supportImage = { src: "/images/location6-image2.jpeg", alt: "Self-drive hire vehicle positioned for collection in the Hedge End area" };
   const faqs = [
-    { question: "Can I hire a van in Hedge End for a home move or store pickup?", answer: "Yes, we can often provide van hire for furniture collection, home moves, DIY supplies and other everyday transport needs around Hedge End." },
-    { question: "Do you also offer cars, minibuses and trucks in Hedge End?", answer: "Yes, subject to vehicle suitability and booking details. We can talk through the best option for your route, passengers or load." },
-    { question: "Is delivery and collection available in Hedge End?", answer: "In many cases, yes. Delivery and collection can be a useful option for busy customers or business bookings." },
-    { question: "Can businesses in Hedge End arrange rental vehicles too?", answer: "Yes, we work with both private and commercial customers, including short-term bookings and ongoing transport support." },
-    { question: "What do I need to hire a vehicle?", answer: "A standard driving licence covers many hire vehicles, but requirements depend on the category and size. We will confirm the details before booking." },
+    { question: "Can I hire a vehicle in Hedge End for personal use?", answer: "Yes, we provide self-drive hire for private customers as well as businesses, depending on the type of vehicle needed." },
+    { question: "What are the most common reasons for hiring in Hedge End?", answer: "Yes, many bookings are made for moving house, collecting furniture, temporary transport and work-related use." },
+    { question: "Will you help me decide which vehicle to book?", answer: "We can talk through the load, number of passengers or type of journey to help you choose a suitable category." },
+    { question: "Is delivery or collection available around Hedge End?", answer: "In many cases, yes. Availability and timing can be discussed when you make your enquiry." },
+    { question: "Can I arrange a longer-term rental in Hedge End?", answer: "Longer bookings may be possible depending on the vehicle and your requirements, so it is worth asking in advance." },
   ];
   const trustCards = [
-    { title: "Prepared for the road", description: "We focus on clean, maintained vehicles that are ready for day-to-day rental use.", icon: ShieldCheck },
-    { title: "Useful booking advice", description: "Our team helps match the booking to the journey, whether you need a compact car or a larger commercial vehicle.", icon: Star },
-    { title: "Straightforward customer support", description: "From personal hires to business bookings, we aim to keep the service clear, dependable and easy to manage.", icon: Users },
+    { title: "Prepared for reliable use", description: "Vehicles are maintained for dependable day-to-day hire and practical road use.", icon: ShieldCheck },
+    { title: "A fleet with real choice", description: "Our range covers personal transport, business needs, group travel and heavier-duty jobs.", icon: Star },
+    { title: "Helpful from enquiry to return", description: "We keep communication clear so customers can book with confidence and less wasted time.", icon: Users },
   ];
   const featureStats = [
-    { value: "Car Hire", label: "Cars for daily travel, appointments and short-notice local journeys." },
-    { value: "Van Hire", label: "Vans for store collections, moving jobs and trade work." },
-    { value: "Minibus Hire", label: "Minibuses for organised group travel and shared journeys." },
-    { value: "Truck Hire", label: "Trucks for heavier loads and larger commercial transport tasks." },
+    { value: "Car Hire", label: "Van hire for house moves, bulky collections, trade jobs and general transport needs." },
+    { value: "Van Hire", label: "Car hire for temporary cover, business journeys and everyday local travel." },
+    { value: "Minibus Hire", label: "Minibus hire for teams, families, clubs and event transport." },
+    { value: "Truck Hire", label: "Truck hire for heavier loads and larger commercial tasks." },
   ];
   const vehicleCards = [
     { src: "/images/smallvan1.jpg", alt: "Small van hire vehicle", title: "Small Vans" },
@@ -52,9 +60,9 @@ export default function LocationPage() {
     { src: "/images/7.5tonnecurtainsidehire.jpg", alt: "7.5 tonne curtainside truck hire vehicle", title: "Truck Hire" },
   ];
   const benefits = [
-    { icon: BadgePoundSterling, title: "Broad vehicle range", description: "A broad choice of vehicles means you can hire for simple local driving or larger transport tasks.", detail: "Cars, vans, minibuses and trucks available for different journey types and load requirements." },
-    { icon: Clock3, title: "Hire that fits your timescale", description: "Flexible hire periods help whether you need a vehicle for a quick job or a longer planned booking.", detail: "Suitable for one-off use, temporary replacement needs, business support and longer hires." },
-    { icon: CheckCircle2, title: "Less hassle on the day", description: "Our service is designed to keep booking and collection as straightforward as possible.", detail: "Clear advice, maintained vehicles and delivery and collection options where arranged." },
+    { icon: BadgePoundSterling, title: "Flexible hire terms", description: "Choose a hire period that fits the job rather than paying for longer than necessary.", detail: "Useful for one-day tasks, weekend moves, event transport and longer business cover." },
+    { icon: Clock3, title: "The right vehicle for the job", description: "A varied fleet means you can match the vehicle to the task more accurately.", detail: "From compact cars to larger vans, minibuses and trucks, we help keep the booking practical." },
+    { icon: CheckCircle2, title: "Convenient service options", description: "Support with delivery, collection and booking guidance helps reduce avoidable hassle.", detail: "Especially useful when your schedule is tight or the hire is part of a bigger job." },
   ];
 
   return (
@@ -103,8 +111,8 @@ export default function LocationPage() {
           <div className="relative z-10 grid gap-12 lg:grid-cols-[1fr_420px] lg:items-center">
             <div className="max-w-3xl">
               <div className="flex flex-col gap-6">
-                <h1 className="text-5xl font-bold tracking-tight">{"Vehicle hire in Hedge End made simple"}</h1>
-                <p className="text-xl text-white">{"Self-drive cars, vans, minibuses and trucks for personal and business use, with flexible hire periods and practical local support."}</p>
+                <h1 className="text-5xl font-bold tracking-tight">{"Vehicle Hire in Hedge End"}</h1>
+                <p className="text-xl text-white">{"Practical van, car, minibus and truck hire for Hedge End with flexible booking and dependable self-drive options."}</p>
                 <Button size="lg" className="w-fit bg-[#00B395] text-white hover:bg-[#00997f]" asChild>
                   <a href={phoneHref}>Book Now</a>
                 </Button>
@@ -127,18 +135,18 @@ export default function LocationPage() {
               <div className="max-w-2xl">
                 <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#00B395]/25 bg-white px-3 py-1 text-sm font-medium text-[#00B395]">
                   <PhoneCall className="h-4 w-4" />
-                  {"Fast, practical booking help"}
+                  {"Easy booking support"}
                 </div>
-                <h2 className="text-2xl font-bold tracking-tight text-slate-950 md:text-3xl">{"Book the right vehicle for Hedge End"}</h2>
-                <p className="mt-3 text-base leading-7 text-slate-600">{"Hedge End is a busy area for shopping trips, business travel, home projects and local deliveries, so we keep the hire process practical. Tell us what you need the vehicle for and we will help arrange a suitable option."}</p>
+                <h2 className="text-2xl font-bold tracking-tight text-slate-950 md:text-3xl">{"Simple vehicle booking for Hedge End"}</h2>
+                <p className="mt-3 text-base leading-7 text-slate-600">{"Booking a hire vehicle in Hedge End should be clear and workable. We help customers compare vehicle types, arrange suitable rental periods and organise practical collection or delivery options where available."}</p>
                 <div className="mt-5 flex flex-wrap gap-3 text-sm text-slate-600">
                   <div className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 shadow-sm">
                     <PhoneCall className="h-4 w-4 text-[#00B395]" />
-                    {"Maintained rental vehicles"}
+                    {"Short and longer hire options"}
                   </div>
                   <div className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 shadow-sm">
                     <Clock3 className="h-4 w-4 text-[#00B395]" />
-                    {"Flexible self-drive hire"}
+                    {"Well-maintained vehicles"}
                   </div>
                 </div>
               </div>
@@ -153,8 +161,8 @@ export default function LocationPage() {
       <section id="trust" className="px-6 py-16">
         <div className="mx-auto max-w-6xl">
           <div className="mb-12 text-center">
-            <h2 className="mb-4 text-4xl font-bold">{"Why customers trust our Hedge End hire service"}</h2>
-            <p className="text-lg text-muted-foreground">{"Customers in Hedge End value reliable vehicles, flexible booking arrangements and a service that works for real local travel needs."}</p>
+            <h2 className="mb-4 text-4xl font-bold">{"A dependable choice for Hedge End hire"}</h2>
+            <p className="text-lg text-muted-foreground">{"Customers in Hedge End want a hire company that is easy to deal with and ready with practical vehicle options. That is exactly the kind of service we aim to provide."}</p>
           </div>
           <div className="grid gap-8 md:grid-cols-3 md:auto-rows-fr">
             {trustCards.map((item) => (
@@ -173,9 +181,9 @@ export default function LocationPage() {
       <section className="bg-white px-6 py-20 text-slate-950">
         <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
           <div>
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Our hire fleet"}</p>
-            <h2 className="max-w-2xl text-4xl font-bold tracking-tight md:text-5xl">{"Vehicle types available for Hedge End customers"}</h2>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">{"We supply a wide range of self-drive vehicles in Hedge End, helping customers choose the right option for local errands, planned jobs and longer road use."}</p>
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Our hire range"}</p>
+            <h2 className="max-w-2xl text-4xl font-bold tracking-tight md:text-5xl">{"Vehicles available to hire in Hedge End"}</h2>
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">{"Hedge End customers can book the type of vehicle that suits the job, from smaller everyday options through to larger load-carrying vehicles."}</p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Button size="lg" className="bg-[#00B395] text-white hover:bg-[#00997f]" asChild>
                 <a href={phoneHref}>No Hassle Booking {phoneDisplay}</a>
@@ -196,12 +204,12 @@ export default function LocationPage() {
       <section className="bg-white px-6 py-20">
         <div className="mx-auto max-w-5xl text-center">
           <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Local hire support"}</p>
-          <h2 className="mx-auto max-w-3xl text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"Straightforward vehicle hire around Hedge End"}</h2>
+          <h2 className="mx-auto max-w-3xl text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"Self-drive vehicle hire that suits Hedge End customers"}</h2>
           <div className="mx-auto mt-8 max-w-3xl space-y-6 text-lg leading-8 text-slate-600">
-            <p>{"Hiring a vehicle in Hedge End can save time when your usual transport is too small, unavailable or simply not right for the journey. Southern Van Hire supplies cars, vans, minibuses and trucks for a wide mix of personal and commercial use."}</p>
-            <p>{"This part of South Hampshire is well connected for local retail runs, business travel and motorway access, so customers often need a hire vehicle that works equally well for urban roads and longer trips. We help keep that choice practical and straightforward."}</p>
-            <p>{"Whether you are moving stock, collecting furniture, arranging group transport or covering a short-term business requirement, our fleet is built around useful vehicle sizes rather than overcomplicated options."}</p>
-            <p>{"With delivery and collection available, flexible hire periods and maintained vehicles, we aim to make self-drive hire around Hedge End as simple and dependable as possible."}</p>
+            <p>{"Hedge End is a busy and well-connected area, making it a sensible place to arrange vehicle hire for both local jobs and longer journeys. Whether you need a van for furniture collection, a car for temporary transport, a minibus for group travel or a truck for heavier work, we offer straightforward self-drive options."}</p>
+            <p>{"For customers in Hedge End, that means access to a broad choice of self-drive vehicles for everyday and specialist jobs alike. From family cars and practical vans to minibuses and larger trucks, we focus on supplying the right hire vehicle for the route, load and rental period."}</p>
+            <p>{"Hedge End is a convenient base for travel across South Hampshire, so bookings often need to fit around work schedules, retail collections and time-sensitive deliveries. Southern Van Hire offers flexible hire periods, maintained vehicles and helpful collection arrangements to keep transport simple in Hedge End."}</p>
+            <p>{"Hedge End customers often need transport that fits around busy schedules. That is why we keep the process service-led and adaptable, whether the hire is for a planned weekend job or a more urgent business requirement."}</p>
           </div>
         </div>
       </section>
@@ -210,9 +218,9 @@ export default function LocationPage() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(0,179,149,0.14),_transparent_55%)] pointer-events-none" />
         <div className="mx-auto max-w-6xl">
           <div className="mx-auto mb-14 max-w-3xl text-center">
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"What makes us useful"}</p>
-            <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"Practical benefits for Hedge End bookings"}</h2>
-            <p className="mt-5 text-lg leading-8 text-slate-600">{"Useful reasons customers in Hedge End choose Southern Van Hire for everyday transport, business cover and larger moving jobs."}</p>
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Useful reasons to book"}</p>
+            <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"What makes our Hedge End hire service practical"}</h2>
+            <p className="mt-5 text-lg leading-8 text-slate-600">{"A practical rental service matters just as much as the vehicle itself. These are some of the reasons customers in Hedge End choose us."}</p>
           </div>
           <div className="grid gap-8 md:grid-cols-3">
             {benefits.map((item) => (
@@ -254,8 +262,8 @@ export default function LocationPage() {
         <div className="mx-auto max-w-5xl">
           <div className="mx-auto max-w-3xl text-center">
             <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Nearby Locations"}</p>
-            <h2 className="text-3xl font-bold tracking-tight text-slate-950 md:text-4xl">{"Serving Hedge End and nearby towns"}</h2>
-            <p className="mt-4 text-lg leading-8 text-slate-600">{"We also serve nearby places around Hedge End, giving customers a practical choice of local booking points across this side of South Hampshire."}</p>
+            <h2 className="text-3xl font-bold tracking-tight text-slate-950 md:text-4xl">{"More locations near Hedge End"}</h2>
+            <p className="mt-4 text-lg leading-8 text-slate-600">{"We support Hedge End as well as other nearby Hampshire towns, giving customers a practical choice of local service areas."}</p>
           </div>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             {locationLinks.map((location) => (
@@ -266,16 +274,16 @@ export default function LocationPage() {
           </div>
           <div className="mt-12 grid gap-6 md:grid-cols-3">
             <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
-              <h3 className="text-2xl font-semibold tracking-tight text-slate-950">{"Vehicles for different jobs"}</h3>
-              <p className="mt-3 text-base leading-7 text-slate-600">{"Our hire options cover everyday driving, larger loads, group transport and commercial work across South Hampshire."}</p>
+              <h3 className="text-2xl font-semibold tracking-tight text-slate-950">{"Options for different journeys"}</h3>
+              <p className="mt-3 text-base leading-7 text-slate-600">{"Our vehicle range covers personal, commercial and group travel requirements in one straightforward hire service."}</p>
             </div>
             <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
-              <h3 className="text-2xl font-semibold tracking-tight text-slate-950">{"Easy to arrange"}</h3>
-              <p className="mt-3 text-base leading-7 text-slate-600">{"We keep booking practical with flexible rental periods and support for both planned and urgent requirements."}</p>
+              <h3 className="text-2xl font-semibold tracking-tight text-slate-950">{"Useful rental flexibility"}</h3>
+              <p className="mt-3 text-base leading-7 text-slate-600">{"Flexible booking helps whether you need a vehicle for a quick task, planned trip or temporary replacement."}</p>
             </div>
             <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6 shadow-sm">
-              <h3 className="text-2xl font-semibold tracking-tight text-slate-950">{"Built around reliability"}</h3>
-              <p className="mt-3 text-base leading-7 text-slate-600">{"Maintained vehicles and straightforward customer support help keep your hire running smoothly."}</p>
+              <h3 className="text-2xl font-semibold tracking-tight text-slate-950">{"Service that stays practical"}</h3>
+              <p className="mt-3 text-base leading-7 text-slate-600">{"We aim to keep every booking practical, with maintained vehicles and support that focuses on what you actually need."}</p>
             </div>
           </div>
         </div>
@@ -285,14 +293,14 @@ export default function LocationPage() {
         <div className="mx-auto max-w-5xl">
           <div className="mx-auto max-w-3xl text-center">
             <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Local Guide"}</p>
-            <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"Driving in and around Hedge End"}</h2>
-            <p className="mt-5 text-lg leading-8 text-slate-600">{"Useful local driving pointers for getting in and out of Hedge End efficiently with a hire vehicle."}</p>
+            <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"Driving around Hedge End"}</h2>
+            <p className="mt-5 text-lg leading-8 text-slate-600">{"Useful local driving notes for getting the most from a hire vehicle in and around Hedge End."}</p>
           </div>
           <div className="mx-auto mt-12 max-w-4xl space-y-6 text-left">
-            <p className="text-base leading-8 text-slate-600">{"Hedge End is a practical place to start a hire if you need quick access to the wider Eastleigh and Southampton area without heading straight into the busiest city routes. For local jobs, it helps to plan around school-run and retail traffic, especially if you are collecting furniture, making timed deliveries or moving items between homes."}</p>
-            <p className="text-base leading-8 text-slate-600">{"If you are hiring a larger van, minibus or truck, give yourself a little extra time when travelling through the main local roads around Hedge End. Residential streets can feel tighter than the main corridors, so it is often easier to load on a quieter side road or driveway first and then join the wider route once you are ready to set off."}</p>
-            <p className="text-base leading-8 text-slate-600">{"For longer runs, it is worth sorting fuel, drinks and quick essentials before you get fully underway. Broad Oak Service Station is a useful nearby stop for that final check, particularly if you are heading out early, returning later in the day or want to avoid an unnecessary detour once the vehicle is loaded."}</p>
-            <p className="text-base leading-8 text-slate-600">{"Common hire uses around Hedge End include home moves, retail collection, business transport and short-notice cover when your own vehicle is unavailable. Whether you are staying local or travelling further across Hampshire, a well-planned route, sensible parking choices and a vehicle matched to the job usually make the day far more straightforward."}</p>
+            <p className="text-base leading-8 text-slate-600">{"Hedge End works well for local and regional vehicle hire because you can get moving quickly without battling deep city traffic straight away. Around the centre, Upper Northam Road, Lower Northam Road and Saint John's Road are the main practical routes to plan around, especially if you are collecting furniture, making business calls or heading out with a larger van."}</p>
+            <p className="text-base leading-8 text-slate-600">{"If you are hiring for shopping collection, house moves or short delivery runs, it helps to think about timing on the B3033 and B3036 corridors as these roads can feel busier around school runs and commuter periods. Wildern Lane and Turnpike Way are also useful local links, but drivers in longer vehicles should allow a little extra time for roundabouts, lane choices and retail traffic."}</p>
+            <p className="text-base leading-8 text-slate-600">{"For fuel planning, there is a Sainsbury's petrol station nearby in Hedge End, which is convenient for topping up before returning a hire vehicle. If your journey starts earlier or finishes later across the wider area, other fuel options can usually be found toward Eastleigh and Southampton, so it is easy to keep refuelling simple without adding a long detour."}</p>
+            <p className="text-base leading-8 text-slate-600">{"Hedge End is also a practical base if your trip includes local hotels, event travel or business visits. The area around Botleigh Road and the wider Utilita Bowl area can make a useful waypoint, and for drivers wanting a short pause before continuing, a nearby service stop such as Broad Oak Service Station can help break up the journey. For most bookings here, the key is choosing the right size vehicle and allowing a little extra room for retail and suburban traffic patterns."}</p>
           </div>
         </div>
       </section>
@@ -300,9 +308,9 @@ export default function LocationPage() {
       <section className="bg-white px-6 py-20">
         <div className="mx-auto max-w-4xl">
           <div className="mb-12 text-center">
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Hedge End FAQs"}</p>
-            <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"Questions we often hear"}</h2>
-            <p className="mt-4 text-lg leading-8 text-slate-600">{"Common questions about vehicle hire in Hedge End, including vehicle types, booking options and business use."}</p>
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-[#00B395]">{"Questions people ask"}</p>
+            <h2 className="text-4xl font-bold tracking-tight text-slate-950 md:text-5xl">{"Hedge End hire FAQs"}</h2>
+            <p className="mt-4 text-lg leading-8 text-slate-600">{"Useful answers for customers arranging self-drive vehicle hire in Hedge End."}</p>
           </div>
           <div className="rounded-3xl border border-slate-200 bg-slate-50 px-6 shadow-sm">
             {faqs.map((item, index) => (
@@ -320,8 +328,8 @@ export default function LocationPage() {
 
       <section className="bg-[#00B395] px-6 py-16 text-center text-white">
         <div className="mx-auto max-w-2xl">
-          <h2 className="mb-4 text-4xl font-bold">{"Arrange your Hedge End vehicle hire"}</h2>
-          <p className="mb-8 text-lg text-white/85">{"From a quick local rental to a larger transport requirement, we can help arrange a suitable vehicle for Hedge End and surrounding areas."}</p>
+          <h2 className="mb-4 text-4xl font-bold">{"Arrange your Hedge End hire vehicle"}</h2>
+          <p className="mb-8 text-lg text-white/85">{"Tell us what you need to move, how many people are travelling or how long the hire is for, and we will help you find a suitable option in Hedge End."}</p>
           <Button size="lg" className="bg-white text-[#00B395] hover:bg-gray-100" asChild>
             <a href={phoneHref}>Book Now</a>
           </Button>

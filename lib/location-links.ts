@@ -9,8 +9,8 @@ const LOCATION_NAMES = [
   "Bishopstoke",
   "Chandler's Ford",
   "Fair Oak",
-  "Totton",
-  "Romsey",
+  "Botley",
+  "Eastleigh",
   "Hedge End",
 ] as const;
 

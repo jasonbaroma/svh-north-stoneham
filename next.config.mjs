@@ -6,8 +6,8 @@ const locationNames = [
   "Bishopstoke",
   "Chandler's Ford",
   "Fair Oak",
-  "Totton",
-  "Romsey",
+  "Botley",
+  "Eastleigh",
   "Hedge End",
 ];
 
